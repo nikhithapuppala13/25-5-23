@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <script>
+        function check(){
+            var name = document.getElementById("name").value
+            var nameCheck=/^[a-zA-Z]+$/
+            var email=document.getElementById("email").value 
+            var emailCheck=/^[a-z0-9.]+@[a-z0-9]+\.[a-z]{2,3}$/
+            var pwd=document.getElementById("pwd").value
+            var pwdCheck="^(?=.*[0-9])"
+                       + "(?=.*[a-z])(?=.*[A-Z])"
+                       + "(?=.*[@#$%^&+=])"
+                       + "(?=\\S+$).{8,20}$" 
+            var cpwd=document.getElementById("cpwd").value 
+            var male=document.getElementById("gendermale")
+            var female=document.getElementById("genderfemale")
+            var list=document.getElementById("list")
+
+            // nikhithapuppala13@gmail.com
+            if(!name.match(nameCheck)){
+                alert("Name should contain only characters")
+                return false
+            }
+            if(!email.match(emailCheck)){
+                alert("please provide valid email")
+                return false
+            }
+            if(!pwd.match(pwdCheck)){
+                alert("Give a strong password")
+            }
+            if(cpwd!=pwd){
+                alert("Enter confirm password correctly")
+            }
+        }
+        </script>
+        </head>
+        <body>
+            <form onsubmit="return check()">
+            Name :<input id="name" placeholder="Enter Name"/></br>
+            EMAIL :<input id="email" placeholder="Enter email"/></br>
+            Password :<input type="password" id="pwd" placeholder="Enter password"/></br>
+            Confirm Password :<input type="password" id="cpwd" placeholder="confirm password"/></br>
+            Gender :<input type="radio" name="gender" id="gendermale"/>male 
+                    <input type="radio" name="gender" id="genderfemale"/>female </br>
+            State :<select id = "list" onchange = "check()" >
+                    <option> ---Choose state--- </option>
+                    <option> AndhraPradesh </option>
+                    <option> Telangana </option>
+                    </select></br>
+            <button>submit</button>
+            </form>
+            </body>
+            </html>
